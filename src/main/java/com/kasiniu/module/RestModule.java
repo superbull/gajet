@@ -1,7 +1,6 @@
 package com.kasiniu.module;
 
 import com.google.inject.Singleton;
-import com.google.inject.persist.PersistFilter;
 import com.google.inject.servlet.ServletModule;
 import com.kasiniu.exception.UnexpectedExceptionMapper;
 import com.kasiniu.filter.CORSFilter;
@@ -27,8 +26,6 @@ public class RestModule extends ServletModule {
         bind(UsersResource.class);
         bind(CORSFilter.class).in(Singleton.class);
         bind(UnexpectedExceptionMapper.class);
-
-        filter("/*").through(PersistFilter.class);
 
         Map<String, String> params = new HashMap<String, String>();
         params.put(
