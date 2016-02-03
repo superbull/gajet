@@ -11,6 +11,13 @@ created_at    DATETIME,
 last_login_at DATETIME
 );
 
+ALTER TABLE app_user
+    ADD CONSTRAINT app_user_uk_email
+    UNIQUE (email),
+
+    ADD CONSTRAINT app_user_uk_mobile
+    UNIQUE (mobile);
+
 -- //@UNDO
 -- SQL to undo the change goes here.
 
